@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Faculty List</title>
+</head>
+<body>
+    <h1>Faculties</h1>
+    <ul>
+        <!-- th:each loops through the collection sent from the controller -->
+        <li th:each="faculty : ${faculties}">
+            <a th:href="@{/faculties/{id}/students(id=${faculty.id})}" th:text="${faculty.name}">Faculty Name</a>
+        </li>
+    </ul>
+</body>
+</html>
