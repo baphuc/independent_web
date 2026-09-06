@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Students in Faculty</title>
+    <style>
+        table { border-collapse: collapse; width: 60%; margin-top: 20px; }
+        th, td { border: 1px solid #ccc; padding: 10px; text-align: left; }
+        th { background-color: #f4f4f4; }
+    </style>
+</head>
+<body>
+    <!-- Dynamically display faculty name -->
+    <h1 th:text="'Students in ' + ${faculty.name}">Faculty Students</h1>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Loop through the students collection of the selected faculty -->
+            <tr th:each="student : ${students}">
+                <td th:text="${student.id}">1</td>
+                <td th:text="${student.name}">Name</td>
+                <td th:text="${student.email}">Email</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p style="margin-top: 20px;">
+        <a th:href="@{/faculties}">← Back to Faculty List</a>
+    </p>
+</body>
+</html>
